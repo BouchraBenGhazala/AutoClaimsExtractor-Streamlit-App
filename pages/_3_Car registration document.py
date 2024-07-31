@@ -45,7 +45,7 @@ if uploaded_files:
                         image_base64 = encode_image2(Image.open(uploaded_file))
                         cv_image = cv2.cvtColor(np.array(image), cv2.COLOR_RGB2BGR)
                         col.markdown(f'<img src="data:image/png;base64,{image_base64}" class="uploaded-image">', unsafe_allow_html=True)
-                        # col.write(get_image_info_openai(base64_image, prompt_carte_grise))
-                        col.write(get_image_info_gemini(cv_image, prompt_carte_grise))
+                        col.write(get_image_info_openai(base64_image, prompt_carte_grise))
+                        # col.write(get_image_info_gemini(cv_image, prompt_carte_grise))
     else:
         st.warning("Please upload two images!")

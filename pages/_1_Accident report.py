@@ -32,39 +32,39 @@ if uploaded_file:
     image = np.array(image)
     cropped_image = returnPartOfImg(image, 0, 0.17, 0, 0.6)  # infos constat
     base64_image = encode_image(cropped_image)
-    # infos_constat = get_image_info_openai(base64_image, prompt_infos)
-    infos_constat=get_image_info_gemini(cropped_image,prompt_infos)
+    infos_constat = get_image_info_openai(base64_image, prompt_infos)
+    # infos_constat=get_image_info_gemini(cropped_image,prompt_infos)
 
     VoitureA = returnPartOfImg(image, 0.17, 0.6, 0, 0.32)
     base64_image_2 = encode_image(VoitureA)
-    # infos_voiture_A = get_image_info_openai(base64_image_2, prompt_vA)
-    infos_voiture_A = get_image_info_gemini(VoitureA,prompt_vA)
+    infos_voiture_A = get_image_info_openai(base64_image_2, prompt_vA)
+    # infos_voiture_A = get_image_info_gemini(VoitureA,prompt_vA)
 
     VueA = returnPartOfImg(image, 0.62, 0.73, 0, 0.32)  # vue vehicule A
     base64_image_2_2 = encode_image(VueA)
-    # infos_vue_A = get_image_info_openai(base64_image_2_2, prompt_vueA)
-    infos_vue_A=get_image_info_gemini(VueA,prompt_vueA)
+    infos_vue_A = get_image_info_openai(base64_image_2_2, prompt_vueA)
+    # infos_vue_A=get_image_info_gemini(VueA,prompt_vueA)
 
     VoitureB = returnPartOfImg(image, 0.17, 0.6, 0.7, 1)
     base64_image_3 = encode_image(VoitureB)
-    # infos_voiture_B = get_image_info_openai(base64_image_3, prompt_vB)
-    infos_voiture_B = get_image_info_gemini(VoitureB, prompt_vB)
+    infos_voiture_B = get_image_info_openai(base64_image_3, prompt_vB)
+    # infos_voiture_B = get_image_info_gemini(VoitureB, prompt_vB)
 
 
     VueB = returnPartOfImg(image, 0.62, 0.72, 0.7, 1)  # vue vehicule B
     base64_image_3_2 = encode_image(VueB)
-    # infos_vue_B = get_image_info_openai(base64_image_3_2, prompt_vueB)
-    infos_vue_B = get_image_info_gemini(VueB, prompt_vueB)
+    infos_vue_B = get_image_info_openai(base64_image_3_2, prompt_vueB)
+    # infos_vue_B = get_image_info_gemini(VueB, prompt_vueB)
 
     casA = returnPartOfImg(image, 0.17, 0.68, 0.3, 0.36)
     base64_image_4 = encode_image(casA)
-    # infos_casA = get_image_info_openai(base64_image_4, prompt_casA)
-    infos_casA = get_image_info_gemini(casA, prompt_casA)
+    infos_casA = get_image_info_openai(base64_image_4, prompt_casA)
+    # infos_casA = get_image_info_gemini(casA, prompt_casA)
 
     casB = returnPartOfImg(image, 0.17, 0.68, 0.64, 0.7)
     base64_image_5 = encode_image(casB)
-    # infos_casB = get_image_info_openai(base64_image_5, prompt_casB)
-    infos_casB = get_image_info_gemini(casB, prompt_casB)
+    infos_casB = get_image_info_openai(base64_image_5, prompt_casB)
+    # infos_casB = get_image_info_gemini(casB, prompt_casB)
 
 
     with st.expander("Accident report extracted information"):
