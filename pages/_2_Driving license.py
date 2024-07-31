@@ -1,6 +1,6 @@
 import streamlit as st
 from PIL import Image
-from secret_key import openapi_key_sygma
+# from secret_key import openapi_key_sygma
 from functions import *
 import numpy as np
 

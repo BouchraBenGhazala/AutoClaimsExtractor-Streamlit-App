@@ -51,7 +51,8 @@ if images:
 
         # tab1, tab2, tab3 = st.tabs(["GPT-4", "Gemini Pro 1.0", "Gemini Pro 1.5"])
         tab1, tab2, tab3 = col2.tabs(["Model #1", "Model #2", "Model #3"])
-        
+        # tab2, tab3 = col2.tabs(["Model #1", "Model #2"])
+
         with tab1:
             with st.spinner():
                 damaged_parts = get_damages_gpt(images_bytes)

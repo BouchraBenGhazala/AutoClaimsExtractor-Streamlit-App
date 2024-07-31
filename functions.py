@@ -18,7 +18,8 @@ safety_settings = [
 
 
 # API Key OPENAI
-client = OpenAI(organization="org-UBgxxZXUHWRbudONatpTkaAJ", api_key=st.secrets["OPENAI_API_KEY_ORG"])
+# client = OpenAI(organization="org-UBgxxZXUHWRbudONatpTkaAJ", api_key=st.secrets["OPENAI_API_KEY_ORG"])
+client = OpenAI(organization="org-UBgxxZXUHWRbudONatpTkaAJ",api_key=st.secrets["OPENAI_API_KEY_ORG"])
 
 
 #API Key Gemini
@@ -28,7 +29,7 @@ genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
 MODEL = "gpt-4o"
 
 #Model Gemini
-vision_model = genai.GenerativeModel('gemini-pro-vision',safety_settings=safety_settings)
+vision_model = genai.GenerativeModel('gemini-1.5-flash',safety_settings=safety_settings)
 
 
 # Functions

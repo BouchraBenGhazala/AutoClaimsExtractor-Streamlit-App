@@ -50,6 +50,7 @@ if images:
                     base64_image = encode_image2(resized_image)
                     st.markdown(f'<img src="data:image/png;base64,{base64_image}" class="uploaded-image">', unsafe_allow_html=True)
                     st.write(get_image_info_openai(base64_image, prompt_car_infos))
+                    # st.write(get_image_info_gemini(base64_image, prompt_car_infos))
                     
         else:
             col_a.warning("No image found for the first car!")
@@ -63,6 +64,7 @@ if images:
                     base64_image = encode_image2(resized_image)
                     st.markdown(f'<img src="data:image/png;base64,{base64_image}" class="uploaded-image">', unsafe_allow_html=True)
                     st.write(get_image_info_openai(base64_image, prompt_car_infos))
+                    # st.write(get_image_info_gemini(base64_image, prompt_car_infos))
         else:
             col_b.warning("No image found for the second car!")
     
@@ -116,6 +118,9 @@ if images:
             col2.markdown(f'<img src="data:image/png;base64,{base64_image2}" class="uploaded-image">', unsafe_allow_html=True)
             col1.write(get_image_info_openai(base64_image1, prompt_permis))
             col2.write(get_image_info_openai(base64_image2, prompt_permis))
+            # col1.write(get_image_info_gemini(base64_image1, prompt_permis))
+            # col2.write(get_image_info_gemini(base64_image2, prompt_permis))
+
 
 
         elif nb_permis==1 or nb_permis>2:
@@ -141,6 +146,8 @@ if images:
             col2.markdown(f'<img src="data:image/png;base64,{base64_image2}" class="uploaded-image">', unsafe_allow_html=True)
             col1.write(get_image_info_openai(base64_image1, prompt_carte_grise))
             col2.write(get_image_info_openai(base64_image2, prompt_carte_grise))
+            # col1.write(get_image_info_gemini(base64_image1, prompt_carte_grise))
+            # col2.write(get_image_info_gemini(base64_image2, prompt_carte_grise))
 
         elif nb_carte_grise==1 or nb_carte_grise>2:
             st.warning("Please provide two car registration images (Front and Back)!")
