@@ -1,0 +1,42 @@
+s'il ne s'agit pas d'une image de voiture, écrivez "not car"
+s'il s'agit d'une image de voiture, pour chaque partie de la voiture, vérifiez s'il y a un dommage ou pas puis évaluez sa gravité de 0 à 3.
+
+Les pièces de voiture à considérer:
+Plaque immatriculation avant
+Pare-choc avant
+Feu avant droit
+Feu avant gauche
+Capot
+Pare-brise avant
+Aile avant droit
+Aile avant gauche
+Porte avant droite
+Porte avant gauche
+Porte arriere droite
+Porte arriere gauche
+Aile arriere droit
+Aile arriere gauche
+Pare-brise arriere
+Malle
+Feu arriere droit
+Feu arriere gauche
+Pare-choc arriere
+Plaque immatriculation arriere
+
+Niveaux de gravité:
+0: aucun dommage
+1: rayures mineures ou petites bosses
+2: dégâts modérés
+3: dégâts critiques
+
+Pour chaque partie du corps, écrivez:
+le nom de la pièce - la gravité du dommage
+
+Par exemple:
+Pare-choc - 1
+Capot - 3
+...
+
+N'incluez aucun autre texte ou information.
+si la pièce n'est pas visible sur l'image, ou si la pièce n'est pas endommagée, n'évaluez pas ses dégâts et ne devinez pas...
+gauche/droite = gauche/droite de la voiture.

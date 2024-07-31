@@ -6,11 +6,20 @@ import cv2
 import io
 from PIL import Image
 import numpy as np
-
+import PIL
 import google.generativeai as genai
+
+safety_settings = [
+  {"category": "HARM_CATEGORY_HARASSMENT", "threshold": "BLOCK_NONE"},
+  {"category": "HARM_CATEGORY_HATE_SPEECH", "threshold": "BLOCK_NONE"},
+  {"category": "HARM_CATEGORY_SEXUALLY_EXPLICIT", "threshold": "BLOCK_NONE"},
+  {"category": "HARM_CATEGORY_DANGEROUS_CONTENT", "threshold": "BLOCK_NONE"},
+]
+
 
 # API Key OPENAI
 client = OpenAI(organization="org-UBgxxZXUHWRbudONatpTkaAJ", api_key=st.secrets["OPENAI_API_KEY_ORG"])
+
 
 #API Key Gemini
 genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
@@ -19,7 +28,7 @@ genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
 MODEL = "gpt-4o"
 
 #Model Gemini
-vision_model = genai.GenerativeModel('gemini-pro-vision')
+vision_model = genai.GenerativeModel('gemini-pro-vision',safety_settings=safety_settings)
 
 
 # Functions
@@ -73,21 +82,21 @@ prompt_audio = open('prompts/prompt_audio.txt', 'r', encoding="utf-8").read()
 
 def get_transcription_gemini(audio_path, type):
     audio = genai.upload_file(audio_path, mime_type=type)
-    response = genai.GenerativeModel('gemini-1.5-flash').generate_content([prompt_audio, audio])
+    response = genai.GenerativeModel('gemini-1.5-flash',safety_settings=safety_settings).generate_content([prompt_audio, audio])
     text = response.candidates[0].content.parts[0].text.strip()
     return text, audio
 
 prompt_translation = open('prompts/prompt_audio_translation.txt', 'r', encoding="utf-8").read()
 
 def get_translation_gemini(darija_text):
-    response = genai.GenerativeModel('gemini-1.5-flash').generate_content([prompt_translation, darija_text])
+    response = genai.GenerativeModel('gemini-1.5-flash',safety_settings=safety_settings).generate_content([prompt_translation, darija_text])
     text = response.text.strip()
     return text
 
 prompt_summary = open('prompts/prompt_audio_summary.txt', 'r', encoding="utf-8").read()
 
 def get_summary_gemini(darija_text):
-    response = genai.GenerativeModel('gemini-1.5-flash').generate_content([prompt_summary, darija_text])
+    response = genai.GenerativeModel('gemini-1.5-flash',safety_settings=safety_settings).generate_content([prompt_summary, darija_text])
     text = response.text.strip()
     return text
 
@@ -230,3 +239,79 @@ def get_image_by_name(images, name, file_names):
     for image, file_name in zip(images, file_names):
         if file_name == name:
             return image
+        
+
+prompt = open('prompts/prompt_fr.txt', 'r', encoding="utf-8").read()
+
+prompt_parts = []
+prompt_parts.append(prompt)
+
+def get_damage_gemini(images_bytes, model_name):
+    model = genai.GenerativeModel(model_name, safety_settings=safety_settings)
+    car_images = [PIL.Image.open(image_bytes) for image_bytes in images_bytes]
+    prompt_parts2 = prompt_parts.copy()
+    for car_image in car_images:
+        prompt_parts2.append(car_image)
+    prompt_parts2.append("pièces endommagées: ")
+    response = model.generate_content(prompt_parts2)
+    text = response.text.strip()
+    damaged_parts = {}
+    if text != "not car":
+        lines = text.split('\n')
+        for line in lines:
+            part_name, severity = line.split(' - ')
+            part_name = part_name.strip()
+            part_name = part_name.replace("è", "e")
+            try:
+                severity = int(severity.strip())
+            except:
+                severity = 0
+            if severity > 0:
+                damaged_parts[part_name] = severity
+    return damaged_parts
+
+def get_damages_gpt(image_bytes):
+    car_images = [base64.b64encode(image_bytes).decode("utf-8") for image_bytes in image_bytes]
+    content = [{"type": "text", "text": prompt}]
+    for car_image in car_images:
+        content.append({"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{car_image}"}})
+    try:
+        response = client.chat.completions.create(
+            # model="gpt-4-vision-preview",
+            model="gpt-4o",
+            messages=[{
+                "role": "user",
+                "content": content
+            }],
+            max_tokens=300,
+            temperature=0.2
+        )
+        text = response.choices[0].message.content.strip()
+        damaged_parts = {}
+        if text != "not car":
+            lines = text.split('\n')
+            for line in lines:
+                part_name, severity = line.split(' - ')
+                part_name = part_name.strip()
+                part_name = part_name.replace("è", "e")
+                try:
+                    severity = int(severity.strip())
+                except:
+                    severity = 0
+                if severity > 0:
+                    damaged_parts[part_name] = severity
+        return damaged_parts
+        
+    except Exception as e:
+        print(e)
+
+def get_damages_html(damaged_parts, prix_dict, prix_add_dict):
+    car_map_html = open("car_map.html", "r").read()
+    car_map_js = open("static/js/script.js", "r").read()
+    car_map_css = open("static/css/styles.css", "r").read()
+    car_map_html += f"<script>let damaged_parts = {damaged_parts};</script>"
+    car_map_html += f"<script>let prix_dict = {prix_dict};</script>"
+    car_map_html += f"<script>let prix_add_dict = {prix_add_dict};</script>"
+    car_map_html += f"<script>{car_map_js}</script>"
+    car_map_html += f"<style>{car_map_css}</style>"
+    return car_map_html

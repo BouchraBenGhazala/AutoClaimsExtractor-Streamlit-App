@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+path {
+    stroke: white;
+    fill:white;
+    transition: fill .4s ease;
+    cursor: pointer;
+}
+/* path:hover {
+    fill: rgb(94, 214, 214) !important;
+} */
+
+#car-map {
+    rotate: 90deg;
+    display: block;
+    /* position: absolute;
+    top: 60px;
+    left: .5rem;
+    width: 100%;
+    height: 460px; */
+    margin-bottom: -180px;
+}
+
+#details-box {
+    padding: 0.5rem;
+    border-radius: 8px;
+    font-size: 18px;
+    position: fixed;
+    color: white;
+    font-family: "Source Sans Pro";
+    background-color: black;
+    width: fit-content;
+    transform: translateX(-50%);
+    transition: opacity .4s ease;
+    z-index: 1;
+    display: none;
+}
+
+.my-legend {
+    z-index: 1;
+    position: relative;
+}
+.my-legend .legend-title {
+    text-align: center;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-family: "Source Sans Pro";
+}
+.my-legend .legend-scale ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+.my-legend .legend-scale ul li {
+    font-family: "Source Sans Pro";
+    display: block;
+    float: left;
+    width: 50px;
+    margin-bottom: 6px;
+    text-align: center;
+    font-size: 80%;
+    list-style: none;
+}
+.my-legend ul.legend-labels li span {
+    display: block;
+    float: left;
+    height: 15px;
+    width: 50px;
+}
+
+#res-table {
+    /* position: absolute;
+    top: 540px; */
+    margin-top: 10px;
+    z-index: 1;
+    /* position: fixed; */
+    position: relative;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+tr:nth-child(even) {
+    background-color: #f0f0f0;
+}
+
+#add-damage {
+    z-index: 1;
+    position: relative;
+}
