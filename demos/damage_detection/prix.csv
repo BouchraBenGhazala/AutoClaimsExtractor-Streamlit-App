@@ -1,0 +1,21 @@
+parts,severity1,severity2,severity3
+Plaque immatriculation avant,100,100,100
+Pare-choc avant,300,500,1200
+Feu avant droit,600,600,600
+Feu avant gauche,600,600,600
+Capot,300,600,1300
+Aile avant droit,200,400,600
+Aile avant gauche,200,400,600
+Porte avant droite,500,800,2000
+Porte avant gauche,500,800,2200
+Porte arriere droite,500,800,2000
+Porte arriere gauche,500,800,2000
+Aile arriere droit,200,400,600
+Aile arriere gauche,200,400,600
+Malle,500,1000,2500
+Feu arriere droit,500,500,500
+Feu arriere gauche,500,500,500
+Pare-choc arriere,300,500,1000
+Plaque immatriculation arriere,100,100,100
+Pare-brise avant,600,600,600
+Pare-brise arriere,600,600,600

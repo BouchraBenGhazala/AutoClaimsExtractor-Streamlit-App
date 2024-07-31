@@ -1,0 +1,2 @@
+openapi_key_sygma="sk-proj-jVNtUzkVtbQ8XKFZIa6zT3BlbkFJr2bHldDYPidMSwlnO8E9"
+openapi_key_abdou="sk-proj-vAQ9plcrKfj5KovPurdnT3BlbkFJvXlf6ejz8XCb8uZzaLLy"

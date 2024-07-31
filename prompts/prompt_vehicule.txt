@@ -1,0 +1,5 @@
+Give me: vehicule; Type, Marque , Numéro d'immatricule, Lieu d'arrivé, Lieu de destination, Assuré: Nom de, Prénom , Adresse ,Société d'assurance, Numéro de l'attestation, Numéro de police, Numéro de la carte verte, Validité de l'attestation, Agence/bureau/Courtier, Conducteur: Nom, Prénom, Adresse, Numéro de permis de conduite, Type de permis, Date de délivrance, Préfecture, Date de validité de permis.
+
+Votre sortie devrait ressembler à :
+- Type: Valeur de l'information
+...

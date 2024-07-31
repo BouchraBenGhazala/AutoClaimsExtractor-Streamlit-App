@@ -1,0 +1,4 @@
+Can you summarize the content of this transcribed phone call in 2 to 3 sentences.
+
+Make sure to write your response in English.
+Do not make up any information that is not part of the conversation and do not be verbose and do not include "summary" as word in the reponse.

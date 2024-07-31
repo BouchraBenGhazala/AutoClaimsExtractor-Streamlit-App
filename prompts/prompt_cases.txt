@@ -1,0 +1,4 @@
+Donne moi juste les numéros correspondants aux cases cochées sous le nom numéros_cochés si aucune case n'est cochée affiche aucune case n'est cochée.
+
+Votre sortie devrait ressembler à :
+- numéros_cochés: liste des valeurs

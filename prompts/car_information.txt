@@ -1,0 +1,7 @@
+Donne moi la couleur, la marque, le modèle, le type , immatriculation de la voiture.
+
+Votre sortie devrait ressembler à :
+- Marque: la valeur
+
+Si les informations ne sont pas visibles ou ne sont pas incluses dans l'image, ne les incluez pas dans votre sortie.
+N'incluez aucun autre texte ou information.

@@ -1,0 +1,9 @@
+Donne moi: Numéro d'immatriculation,immatriculation anterieure,Premiere mise en circulation,M.C au Maroc,Date de mutation,Usage,Propriétaire,Adresse,Fin de validité,Marque,Type,Genre,Modèle,Type carburant,Numero du chassis,Nombre de cylindres,Puissance fiscale,Nombre de places,P.T.A.C,Poids à vide,P.T.R.A,Restrictions.
+
+Si les informations ne sont pas visibles ou ne sont pas incluses dans l'image, ne les incluez pas dans votre sortie.
+N'incluez aucun autre texte ou information.
+
+Votre sortie devrait ressembler à :
+- Nom de l'information : Valeur de l'information
+...
+

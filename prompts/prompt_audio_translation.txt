@@ -1,0 +1,8 @@
+Translate this darija phone call to English.
+The phone call is usualy between two Moroccan people, so it may be in Moroccan Darija with a mix with some English and Arabic words.
+To identify speakers, you can use the following convention:
+Agent: ...
+Client: ...
+Make sure to write the transcription in English language not just the spelling.
+Do not make up any information that is not part of the audio and do not be verbose.
+do not write '#' or '*' characters!

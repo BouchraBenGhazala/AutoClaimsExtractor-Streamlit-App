@@ -1,0 +1,8 @@
+Donne moi pour l'image du recto :Pays,nom,prénom,CIN,date de naissance,lieu de naissance,numéro de permis,date de délivrance,lieu de délivrance et pour l'image du verso :date d'échange ou duplicata, date de fin de validité.
+
+Si les informations ne sont pas visibles ou ne sont pas incluses dans l'image, ne les incluez pas dans votre sortie.
+N'incluez aucun autre texte ou information.
+
+Votre sortie devrait ressembler à :
+- Pays : Valeur de l'information
+...

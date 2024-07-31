@@ -1,0 +1,5 @@
+Donne moi les zones sélectionnées: haut, haut à gauche, haut à droite, premier droite, premier gauche, deuxième droite, deuxième gauche, arrière, arrière gauche, arrière droite.
+
+Votre sortie devrait ressembler à :
+- Haut: Valeur de l'information
+...

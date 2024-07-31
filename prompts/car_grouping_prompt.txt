@@ -1,0 +1,12 @@
+these are either images of two different cars or images of the same car.
+group these images into two groups A and B
+
+your output for a group should be a list of the image numbers that belong to that group or an empty list if there are no images in that group.
+
+your general output should be a json:
+{
+    "A": [...],
+    "B": [...]
+}
+
+do not include any other text in your output, always respond in json and format specified

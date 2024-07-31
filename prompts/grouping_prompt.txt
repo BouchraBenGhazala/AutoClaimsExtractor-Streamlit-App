@@ -1,0 +1,23 @@
+group these images into these groups:
+- images voitures
+- carte grise: (or Certificat d'immatriculation) is a card and not a paper, it that contains information about a car, it usually has two sides that could both be in the same image or in two different images.
+the front side of the carte grise contains information about the car such as Numéro d'immatriculation, Propriétaire, etc.
+- permis: (Permis de conduire) is also a card and not a paper, it also has two sides and contains information about the driver's license such as the driver's photo, the driver's name, etc. 
+the back side of the permis contains information about the categories of vehicles that the driver is allowed to drive (AM, A1, A, B, C, D, EB, EC, ED).
+the back side of the carte grise contains information such as Marque, Type, Genre, N° du chassis, Nombre de cylindres, Puissance fiscale...
+- constat (Constat aimiable d'accident automobile) is usually a digital image of a paper or a document that is used to record the details of a car accident such as the date, time, location, the names of the drivers, the names of the witnesses, the insurance companies, the damages, etc.
+It also has a sketch of the accident scene, and the damaged sides of the cars.
+- autres is a category for any other image that does not fit into the mentioned categories such as les contrats d'assurances, carte nationale d'identité, factures, etc.
+
+your output for a group should be a list of the image numbers that belong to that group or an empty list if there are no images for that group.
+your overall output should a json:
+{
+    "images voitures": [...],
+    "carte grise": [...],
+    "permis": [...],
+    "constat": [...],
+    "autres": [...]
+}
+
+make sure that: images voitures can have multiple images, carte grise has 2 images or none, permis has 2 images or none, constat has 1 image or none 
+do not include any other text in your output, always respond in json and format specified

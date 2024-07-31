@@ -1,0 +1,8 @@
+Donne moi: numéro du constat,Date de l'accident,Heure de l'accident,Lieu de l'accident, numéro de téléphone.
+
+Si les informations ne sont pas visibles ou ne sont pas incluses dans l'image, ne les incluez pas dans votre sortie.
+N'incluez aucun autre texte ou information.
+
+Votre sortie devrait ressembler à :
+- Numéro du constat: Valeur de l'information
+...
