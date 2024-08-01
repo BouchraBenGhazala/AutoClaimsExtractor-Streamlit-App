@@ -18,8 +18,7 @@ safety_settings = [
 
 
 # API Key OPENAI
-# client = OpenAI(organization="org-UBgxxZXUHWRbudONatpTkaAJ", api_key=st.secrets["OPENAI_API_KEY_ORG"])
-# client = OpenAI(organization="org-UBgxxZXUHWRbudONatpTkaAJ",api_key=st.secrets["OPENAI_API_KEY_ORG"])
+client = OpenAI(organization="org-UBgxxZXUHWRbudONatpTkaAJ", api_key=st.secrets["OPENAI_API_KEY_ORG"])
 
 
 #API Key Gemini
@@ -369,40 +368,40 @@ def get_damage_gemini(images_bytes, model_name):
                 damaged_parts[part_name] = severity
     return damaged_parts
 
-# def get_damages_gpt(image_bytes):
-#     car_images = [base64.b64encode(image_bytes).decode("utf-8") for image_bytes in image_bytes]
-#     content = [{"type": "text", "text": prompt}]
-#     for car_image in car_images:
-#         content.append({"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{car_image}"}})
-#     try:
-#         response = client.chat.completions.create(
-#             # model="gpt-4-vision-preview",
-#             model="gpt-4o",
-#             messages=[{
-#                 "role": "user",
-#                 "content": content
-#             }],
-#             max_tokens=300,
-#             temperature=0.2
-#         )
-#         text = response.choices[0].message.content.strip()
-#         damaged_parts = {}
-#         if text != "not car":
-#             lines = text.split('\n')
-#             for line in lines:
-#                 part_name, severity = line.split(' - ')
-#                 part_name = part_name.strip()
-#                 part_name = part_name.replace("è", "e")
-#                 try:
-#                     severity = int(severity.strip())
-#                 except:
-#                     severity = 0
-#                 if severity > 0:
-#                     damaged_parts[part_name] = severity
-#         return damaged_parts
+def get_damages_gpt(image_bytes):
+    car_images = [base64.b64encode(image_bytes).decode("utf-8") for image_bytes in image_bytes]
+    content = [{"type": "text", "text": prompt}]
+    for car_image in car_images:
+        content.append({"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{car_image}"}})
+    try:
+        response = client.chat.completions.create(
+            # model="gpt-4-vision-preview",
+            model="gpt-4o",
+            messages=[{
+                "role": "user",
+                "content": content
+            }],
+            max_tokens=300,
+            temperature=0.2
+        )
+        text = response.choices[0].message.content.strip()
+        damaged_parts = {}
+        if text != "not car":
+            lines = text.split('\n')
+            for line in lines:
+                part_name, severity = line.split(' - ')
+                part_name = part_name.strip()
+                part_name = part_name.replace("è", "e")
+                try:
+                    severity = int(severity.strip())
+                except:
+                    severity = 0
+                if severity > 0:
+                    damaged_parts[part_name] = severity
+        return damaged_parts
         
-#     except Exception as e:
-#         print(e)
+    except Exception as e:
+        print(e)
 
 def get_damages_html(damaged_parts, prix_dict, prix_add_dict):
     car_map_html = open("car_map.html", "r").read()

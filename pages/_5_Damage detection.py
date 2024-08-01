@@ -1,6 +1,7 @@
 
 
 import streamlit as st
+# from functions import get_damage_gemini, get_damages_gpt, get_damages_html
 from functions import get_damage_gemini, get_damages_gpt, get_damages_html
 from streamlit.components.v1 import html
 import io
