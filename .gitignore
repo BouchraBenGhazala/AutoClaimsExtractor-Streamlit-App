@@ -1,3 +1,6 @@
 .streamlit/secrets.toml
 secret_key.py
 __pycache__/
+pages/_4_Audio calls analysis.py
+pages/_7_Insurance_contact_Q&A.py
+pages/_5_Damage detection.py
