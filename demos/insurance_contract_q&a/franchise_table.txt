@@ -1,8 +1,0 @@
-| Garanties                            | Montant de la Garantie | Franchise               |
-|--------------------------------------|------------------------|-------------------------|
-| Responsabilité Civile                | Illimitée              |                         |
-| Dommage Collision                    | 30 000.00 Dhs          | 500.00 Dhs              |
-| Dommages Au Véhicule                 | 0.00 Dhs               | 0.00 Dhs                |
-| Incendie Du Véhicule                 | 150 000.00 Dhs         |                         |
-| Vol du Véhicule                      | 150 000.00 Dhs         | 0.05 %                  |
-| Bris de Glaces                       | 10 000.00 Dhs          | 0.10 %                  |
