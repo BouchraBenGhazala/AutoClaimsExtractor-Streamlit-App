@@ -8,7 +8,7 @@ st.markdown("<h1 style='color:#077d81;'>AutoClaims Extractor</h1>", unsafe_allow
 
 
 with st.sidebar:
-    st.image("sygma_logo.png")
+    # st.image("sygma_logo.png")
     st.markdown("# AutoClaims Extractor")
     st.markdown("This app uses AI to **automate the process of accident claims** by **grouping images** and **extracting information** from them.")
     # st.markdown("[Sygma.AI](https://sygma.ai/)")
