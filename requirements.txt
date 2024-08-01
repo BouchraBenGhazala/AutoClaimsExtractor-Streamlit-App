@@ -9,5 +9,6 @@ pandas
 opencv-python-headless
 replicate
 fitz
+PyMuPDF
 
 
